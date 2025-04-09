@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   -- Indentation guides
   {
@@ -6,7 +8,7 @@ return {
     main = "ibl",
     opts = {
       indent = {
-        char = "│", -- Character to use for indentation line
+        char = icons.ui.ThinLine, -- Character to use for indentation line
       },
       scope = {
         enabled = true,

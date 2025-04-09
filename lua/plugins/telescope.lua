@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -17,8 +19,8 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
-          prompt_prefix = " ",
-          selection_caret = " ",
+          prompt_prefix = icons.ui.Telescope .. " ",
+          selection_caret = icons.ui.Forward .. " ",
           layout_strategy = "horizontal",
           layout_config = {
             horizontal = {

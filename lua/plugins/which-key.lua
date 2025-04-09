@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   {
     "folke/which-key.nvim",
@@ -6,9 +8,9 @@ return {
       plugins = { spelling = true },
       notify = false,
       icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "➜", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
+        breadcrumb = icons.ui.ChevronRight, -- symbol used in the command line area that shows your active key combo
+        separator = icons.ui.Forward, -- symbol used between a key and it's label
+        group = icons.ui.Plus, -- symbol prepended to a group
       },
       popup_mappings = {
         scroll_down = "<c-d>", -- binding to scroll down inside the popup

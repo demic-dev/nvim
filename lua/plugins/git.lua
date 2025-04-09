@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   -- Git signs in the gutter
   {
@@ -5,12 +7,12 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       signs = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        delete = { text = "▁" },
-        topdelete = { text = "▔" },
-        changedelete = { text = "▎" },
-        untracked = { text = "▎" },
+        add = { text = icons.git.LineAdded },
+        change = { text = icons.git.LineModified },
+        delete = { text = icons.git.LineRemoved },
+        topdelete = { text = icons.git.LineRemoved },
+        changedelete = { text = icons.git.LineModified },
+        untracked = { text = icons.ui.BoldLine },
       },
       signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
       numhl = false,     -- Toggle with `:Gitsigns toggle_numhl`
@@ -96,13 +98,13 @@ return {
       git_cmd = { "git" },
       use_icons = true,
       icons = {
-        folder_closed = "",
-        folder_open = "",
+        folder_closed = icons.kind.Folder,
+        folder_open = icons.kind.Folder,
       },
       signs = {
-        fold_closed = "",
-        fold_open = "",
-        done = "✓",
+        fold_closed = icons.ui.Triangle,
+        fold_open = icons.ui.Triangle,
+        done = icons.ui.Tick,
       },
       view = {
         default = {

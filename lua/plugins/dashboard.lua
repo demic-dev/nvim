@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   {
     "nvimdev/dashboard-nvim",
@@ -19,7 +21,7 @@ return {
           },
           center = {
             {
-              icon = "󰈞 ",
+              icon = icons.kind.File .. " ",
               icon_hl = "Title",
               desc = "Find File",
               key = "f",
@@ -27,7 +29,7 @@ return {
               action = "Telescope find_files"
             },
             {
-              icon = "󰈢 ",
+              icon = icons.ui.Telescope .. " ",
               icon_hl = "Title",
               desc = "Recent Files",
               key = "r",
@@ -35,7 +37,7 @@ return {
               action = "Telescope oldfiles"
             },
             {
-              icon = " ",
+              icon = icons.ui.Search .. " ",
               icon_hl = "Title",
               desc = "Find Word",
               key = "g",
@@ -43,7 +45,7 @@ return {
               action = "Telescope live_grep"
             },
             {
-              icon = " ",
+              icon = icons.kind.File .. " ",
               icon_hl = "Title",
               desc = "New File",
               key = "n",
@@ -51,7 +53,7 @@ return {
               action = "enew"
             },
             {
-              icon = " ",
+              icon = icons.ui.Setting .. " ",
               icon_hl = "Title",
               desc = "Configuration",
               key = "c",
@@ -59,7 +61,7 @@ return {
               action = "cd ~/.config/nvim-test-config | e init.lua"
             },
             {
-              icon = " ",
+              icon = icons.ui.Close .. " ",
               icon_hl = "Title",
               desc = "Exit Neovim",
               key = "q",

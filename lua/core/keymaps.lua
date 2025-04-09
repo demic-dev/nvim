@@ -42,7 +42,7 @@ keymap('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
 keymap('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
 
 -- Close buffer
-keymap('n', '<S-q> ', ':bd<CR>', { desc = 'Close current buffer' })
+keymap('n', '<S-q>', ':bd<CR>', { desc = 'Close current buffer' })
 
 -- Save file
 keymap('n', '<C-s>', ':w<CR>', { desc = 'Save file', noremap = true, silent = true })

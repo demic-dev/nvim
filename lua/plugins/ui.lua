@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   -- Enhanced UI experience with centered command-line
   {
@@ -22,9 +24,9 @@ return {
           },
         },
         icons = {
-          ["/"] = { icon = "", hl_group = "NoiceCmdlineIconSearch" },
-          ["?"] = { icon = "", hl_group = "NoiceCmdlineIconSearch" },
-          [":"] = { icon = "", hl_group = "NoiceCmdlineIconCommand" },
+          ["/"] = { icon = icons.ui.Search, hl_group = "NoiceCmdlineIconSearch" },
+          ["?"] = { icon = icons.ui.Search, hl_group = "NoiceCmdlineIconSearch" },
+          [":"] = { icon = icons.ui.ChevronRight, hl_group = "NoiceCmdlineIconCommand" },
         },
       },
       messages = {

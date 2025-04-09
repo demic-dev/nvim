@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -7,14 +9,14 @@ return {
       options = {
         theme = "duskfox",
         component_separators = " ",
-        section_separators = { left = '', right = '' },
+        section_separators = { left = icons.ui.ChevronRight, right = icons.ui.ChevronRight },
         disabled_filetypes = {
           -- statusline = { "dashboard", "alpha" },
           -- winbar = { "dashboard", "alpha", "NvimTree" },
         },
       },
       sections = {
-        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_a = { { 'mode', separator = { left = icons.ui.ChevronRight }, right_padding = 2 } },
         lualine_b = { 'filename', 'branch' },
         lualine_c = {
           '%=', --[[ add your center components here in place of this comment ]]
@@ -22,7 +24,7 @@ return {
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
         lualine_z = {
-          { 'location', separator = { right = '' }, left_padding = 2 },
+          { 'location', separator = { right = icons.ui.ChevronRight }, left_padding = 2 },
         },
       },
       inactive_sections = {
