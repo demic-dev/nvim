@@ -2,5 +2,6 @@
 -- All files in the plugins directory will be automatically loaded by lazy.nvim
 
 return {
-  -- Include all plugin specs from this directory
+  require("plugins.text_editing.latex"),
+  require("plugins.text_editing.markdown")
 }

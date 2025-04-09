@@ -1,3 +1,4 @@
+-- filepath: /Users/micheledecillis/.config/nvim-config/lua/plugins/text_editing/latex.lua
 return {
   -- LaTeX support
   {

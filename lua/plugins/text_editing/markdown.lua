@@ -1,3 +1,4 @@
+-- filepath: /Users/micheledecillis/.config/nvim-config/lua/plugins/text_editing/markdown.lua
 return {
   -- Markdown support
   {
@@ -23,9 +24,12 @@ return {
   -- Markdown preview
   {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.cmd[[Lazy load markdown-preview.nvim]]
+      vim.fn["mkdp#util#install"]()
+    end,
     init = function()
       vim.g.mkdp_auto_start = 0
       vim.g.mkdp_auto_close = 1

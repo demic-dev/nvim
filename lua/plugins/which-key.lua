@@ -4,6 +4,7 @@ return {
     event = "VeryLazy",
     opts = {
       plugins = { spelling = true },
+      notify = false,
       icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
         separator = "➜", -- symbol used between a key and it's label
@@ -49,20 +50,18 @@ return {
       local wk = require("which-key")
       wk.setup(opts)
       
-      local keymaps = {
+      wk.add({
         mode = { "n", "v" },
-        { "<leader>b", group = "buffer" },
-        { "<leader>f", group = "file/find" },
-        { "<leader>g", group = "git" },
-        { "<leader>h", group = "hunks" },
-        { "<leader>l", group = "latex" },
-        { "<leader>m", group = "markdown/math" },
-        { "<leader>n", group = "noice/notifications" },
-        { "<leader>s", group = "splits" },
-        { "<leader>t", group = "toggle/tabs" },
-      }
-      
-      wk.register(keymaps)
+        { "<leader>b", group = "buffer", desc = "Buffer" },
+        { "<leader>f", group = "file/find", desc = "File/Find" },
+        { "<leader>g", group = "git", desc = "Git" },
+        { "<leader>h", group = "hunks", desc = "Hunks" },
+        { "<leader>l", group = "latex", desc = "LaTeX" },
+        { "<leader>m", group = "markdown/math", desc = "Markdown/Math" },
+        { "<leader>n", group = "noice/notifications", desc = "Noice/Notifications" },
+        { "<leader>s", group = "splits", desc = "Splits" },
+        { "<leader>t", group = "toggle/tabs", desc = "Toggle/Tabs" },
+      })
     end,
   },
 }
