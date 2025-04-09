@@ -60,7 +60,8 @@ return {
         { "<leader>h", group = "hunks", desc = "Hunks" },
         { "<leader>l", group = "latex", desc = "LaTeX" },
         { "<leader>m", group = "markdown/math", desc = "Markdown/Math" },
-        { "<leader>n", group = "noice/notifications", desc = "Noice/Notifications" },
+        { "<leader>n", group = "org-roam", desc = "Org Roam" },
+        { "<leader>o", group = "org-mode", desc = "Org Mode" },
         { "<leader>s", group = "splits", desc = "Splits" },
         { "<leader>t", group = "toggle/tabs", desc = "Toggle/Tabs" },
       })

@@ -2,12 +2,13 @@ local icons = require("icons")
 
 return {
   {
+    enable = false,
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event= "BufEnter",
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle File Explorer" },
-      { "<leader>o", "<cmd>NvimTreeFocus<cr>", desc = "Focus File Explorer" },
+      { "<leader>]", "<cmd>NvimTreeFocus<cr>", desc = "Focus File Explorer" },
     },
     opts = {
       reload_on_bufenter = true,

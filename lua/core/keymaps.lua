@@ -9,13 +9,11 @@ vim.g.maplocalleader = ' '
 
 -- Better window navigation
 keymap('n', '<C-h>', '<C-w>h', { desc = 'Navigate to left window', noremap = true, silent = true })
-keymap('n', '<C-j>', '<C-w>j', { desc = 'Navigate to bottom window', noremap = true, silent = true })
-keymap('n', '<C-k>', '<C-w>k', { desc = 'Navigate to top window', noremap = true, silent = true })
 keymap('n', '<C-l>', '<C-w>l', { desc = 'Navigate to right window', noremap = true, silent = true })
 
 -- Buffer navigation
-keymap('n', '<S-l>', ':bnext<CR>', { desc = 'Next buffer', noremap = true, silent = true })
-keymap('n', '<S-h>', ':bprevious<CR>', { desc = 'Previous buffer', noremap = true, silent = true })
+keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = 'Next buffer', noremap = true, silent = true })
+keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = 'Next buffer', noremap = true, silent = true })
 
 -- Move text up and down in visual mode
 keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move text down', noremap = true, silent = true })
@@ -39,7 +37,6 @@ keymap('n', '<leader>h', ':nohlsearch<CR>', { desc = 'Clear search highlights', 
 
 -- Split window
 keymap('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
-keymap('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
 
 -- Close buffer
 keymap('n', '<S-q>', ':bd<CR>', { desc = 'Close current buffer' })

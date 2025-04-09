@@ -3,5 +3,6 @@
 
 return {
   require("plugins.text_editing.latex"),
-  require("plugins.text_editing.markdown")
+  require("plugins.text_editing.markdown"),
+  require("plugins.org")
 }

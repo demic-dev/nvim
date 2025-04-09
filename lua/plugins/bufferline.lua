@@ -8,11 +8,8 @@ return {
     keys = {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
       
-      { "<leader>bs", "<Cmd>BufferLinePick<CR>", desc = "Select buffer" },
-      
-      { "<leader>bs", "<Cmd>BufferLinePickClose<CR>", desc = "Close buffer (to select)" },
-
-      -- { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+      -- { "<leader>bs", "<Cmd>BufferLinePick<CR>", desc = "Select buffer" },
+      -- { "<leader>bs", "<Cmd>BufferLinePickClose<CR>", desc = "Close buffer (to select)" },
 
       { "<C-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
       { "<C-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
