@@ -10,41 +10,87 @@ return {
     },
     event = "VeryLazy",
     config = function()
-      -- Load treesitter grammar for org
-      require("orgmode").setup_ts_grammar()
+      local orgmode = require("orgmode")
 
-      -- Setup treesitter
-      require("nvim-treesitter.configs").setup({
-        highlight = {
-          enable = true,
-        },
-        ensure_installed = { "org" },
-      })
-
-      require("orgmode").setup({
-        org_agenda_files = { "~/org/*", "~/Documents/org/*" },
-        org_default_notes_file = "~/org/refile.org",
+      orgmode.setup({
+        org_agenda_files = { "~/.org/**/*" },
+        org_default_notes_file = "~/.org/",
         org_hide_emphasis_markers = true,
         org_highlight_latex_and_related = "entities",
-        org_todo_keywords = { "TODO", "NEXT", "WAITING", "DONE" },
+        org_todo_keywords = { "TODO(t)", "NEXT(n)", "WAITING(w)", "SOMEDAY/MAYBE(m)", "|", "DONE(d)", "CANCELLED(c)" },
+        --[[ org_todo_keywords_faces = {
+          TODO = "",
+        }, ]]
         mappings = {
           global = {
-            org_agenda = "<Leader>oa",
-            org_capture = "<Leader>oc",
+            org_agenda = "<Leader>o<Leader>a",
+            org_capture = "<Leader>o<Leader>c",
           },
         },
         org_capture_templates = {
-          t = {
-            description = "Todo",
+          i = {
+            description = "inbox",
             template = "* TODO %?\n  %u",
-            target = "~/org/todo.org",
+            target = "~/.org/inbox.org",
           },
-          n = {
-            description = "Notes",
-            template = "* %?\n  %u",
-            target = "~/org/notes.org",
+          ic = {
+            description = "inbox clipboard",
+            template = "* TODO %x%?\n  %u",
+            target = "~/.org/inbox.org",
           },
         },
+        org_agenda_custom_commands = {
+           c = {
+            -- https://blog.jethro.dev/posts/processing_inbox/
+            description = 'Combined view',
+            types = {
+              {
+                type = 'agenda',
+                org_agenda_overriding_header = 'Today agenda',
+                org_agenda_span = 'day'
+              },
+              {
+                type = 'agenda',
+                org_agenda_overriding_header = 'Tomorrow agenda',
+                org_agenda_span = 'day',
+                org_agenda_start_day = '+1d',
+              },
+              {
+                type = 'tags',
+                org_agenda_overriding_header = 'To refile',
+                org_agenda_files = "~/.org/inbox.org",
+              },
+              {
+                type = 'tags',
+                match = "+TODO=\"NEXT\"",
+                org_agenda_overriding_header = 'In progress',
+                org_agenda_files = "~/.org/**/*",
+              },
+              {
+                type = 'tags',
+                match = "+TODO=\"TODO\"",
+                org_agenda_overriding_header = 'Projects',
+                org_agenda_files = "~/.org/projects/*"
+              },
+              {
+                type = 'tags',
+                match = "+TODO=\"TODO\"",
+                org_agenda_overriding_header = 'Areas',
+                org_agenda_files = "~/.org/area/*"
+              },
+              {
+                type = 'tags',
+                org_agenda_overriding_header = 'One off tasks',
+                org_agenda_files = "~/.org/one-off.org",
+              },
+            }
+          },
+        },
+        ui = {
+          input = {
+            use_vim_ui = false
+          }
+        }
       })
     end,
   },
@@ -59,12 +105,12 @@ return {
     },
     config = function()
       require("org-roam").setup({
-        directory = "~/org-roam", -- Directory where your org-roam files will be stored
-        db_path = "~/.org-roam.db", -- Path to your org-roam database
+        directory = "~/.org/roam", -- Directory where your org-roam files will be stored
+        db_path = "~/.org/roam/.org-roam.db", -- Path to your org-roam database
         
         -- Daily notes configuration
         dailies = {
-          directory = "~/org-roam/daily/", -- Directory for daily notes
+          directory = "~/.org/roam/daily/", -- Directory for daily notes
           today_heading = true, -- Add a heading with today's date
           filename_format = "%Y-%m-%d", -- Format for the daily note filenames
         },
@@ -98,45 +144,22 @@ return {
         templates = {
           default = {
             title = "%?", -- %? Will be replaced with the cursor position
-            template = [[
-* %?
-%u
-
-]], -- %u inserts a timestamp
+            template = "[[ * %? %u ]]", -- %u inserts a timestamp
           },
           project = {
             title = "Project: %?",
-            template = [[
-* Project: %?
-%u
-
-** Goals
-
-** Tasks
-
-** Notes
-
-]],
+            template = "[[ * Project: %? %u ** Goals ** Tasks ** Notes ]]",
           },
           literature = {
             title = "Literature: %?",
-            template = [[
-* %?
-%u
-
-** Source
-  
-** Summary
-
-** Notes
-
-** References
-
-]],
+            template = "[[ * %? %u ** Source ** Summary ** Notes ** References ]]",
           },
         },
       })
     end,
+    -- keys = {
+    --   { "<leader>op", "[[:lua require('core.functions').process_inbox_item()<CR>]]", desc = "Process Inbox Item" }
+    -- }
   },
   
   -- Org bullets for better visual representation
@@ -160,3 +183,4 @@ return {
     end,
   },
 }
+

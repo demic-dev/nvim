@@ -7,6 +7,7 @@ return {
       require("nvim-treesitter.configs").setup({
         ensure_installed = "all", 
         auto_install = true,
+        ignore_install = { "org" },
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,

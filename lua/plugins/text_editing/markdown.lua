@@ -54,13 +54,15 @@ return {
   },
 
   -- Markdown/Org-mode document highlights and decorations
-  {
+  --[[ {
     "lukas-reineke/headlines.nvim",
     ft = { "org", "norg" },
     dependencies = "nvim-treesitter/nvim-treesitter",
     opts = {
       org = {
         headline_highlights = { "Headline1", "Headline2", "Headline3" },
+        fat_headline_upper_string = "",
+        fat_headline_lower_string = "",
       },
     },
     config = function(_, opts)
@@ -74,7 +76,7 @@ return {
       
       require("headlines").setup(opts)
     end,
-  },
+  }, ]]
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
