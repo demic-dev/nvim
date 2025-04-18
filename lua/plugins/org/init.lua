@@ -50,12 +50,6 @@ return {
                 org_agenda_span = 'day'
               },
               {
-                type = 'agenda',
-                org_agenda_overriding_header = 'Tomorrow agenda',
-                org_agenda_span = 'day',
-                org_agenda_start_day = '+1d',
-              },
-              {
                 type = 'tags',
                 org_agenda_overriding_header = 'To refile',
                 org_agenda_files = "~/.org/inbox.org",
@@ -68,13 +62,13 @@ return {
               },
               {
                 type = 'tags',
-                match = "+TODO=\"TODO\"",
+                match = "+TODO=\"TODO\"|+TODO=\"WAITING\"",
                 org_agenda_overriding_header = 'Projects',
                 org_agenda_files = "~/.org/projects/*"
               },
               {
                 type = 'tags',
-                match = "+TODO=\"TODO\"",
+                match = "+TODO=\"TODO\"|+TODO=\"WAITING\"",
                 org_agenda_overriding_header = 'Areas',
                 org_agenda_files = "~/.org/area/*"
               },
@@ -84,6 +78,34 @@ return {
                 org_agenda_files = "~/.org/one-off.org",
               },
             }
+          },
+          d = {
+            description = 'Done tasks',
+            types = {
+              {
+                type = 'tags',
+                match = "+TODO=\"DONE\"",
+                org_agenda_overriding_header = 'Done',
+                org_agenda_files = "~/.org/**/*",
+              },
+              {
+                type = 'tags',
+                match = "+TODO=\"CANCELLED\"",
+                org_agenda_overriding_header = 'Cancelled',
+                org_agenda_files = "~/.org/**/*",
+              },
+            },
+          },
+          w = {
+            description = 'Someday/Maybe',
+            types = {
+              {
+                type = 'tags',
+                match = "+TODO=\"SOMEDAY/MAYBE\"",
+                org_agenda_overriding_header = 'Someday/Maybe',
+                org_agenda_files = "~/.org/**/*"
+              },
+            },
           },
         },
         ui = {
