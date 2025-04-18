@@ -28,16 +28,26 @@ return {
           },
         },
         org_capture_templates = {
+          p = {
+            description = "project",
+            template = "* Activities list :noexport:",
+            target = "~/.org/projects/%^{project name (without extension)}.org",
+          },
+          a = {
+            description = "area",
+            template = "* Activities list :noexport:",
+            target = "~/.org/area/%^{area name (without extension)}.org",
+          },
           i = {
             description = "inbox",
             template = "* TODO %?\n  %u",
             target = "~/.org/inbox.org",
           },
-          ic = {
-            description = "inbox clipboard",
-            template = "* TODO %x%?\n  %u",
-            target = "~/.org/inbox.org",
-          },
+          -- ic = {
+          --   description = "inbox clipboard",
+          --   template = "* TODO %x%?\n  %u",
+          --   target = "~/.org/inbox.org",
+          -- },
         },
         org_agenda_custom_commands = {
            c = {
