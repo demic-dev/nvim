@@ -84,6 +84,7 @@ return {
               },
               {
                 type = 'tags',
+                match = "+TODO=\"TODO\"|+TODO=\"WAITING\"",
                 org_agenda_overriding_header = 'One off tasks',
                 org_agenda_files = "~/.org/one-off.org",
               },
