@@ -1,6 +1,3 @@
-vim.opt_local.wrap = true
-vim.opt_local.linebreak = true
-vim.opt_local.breakindent = true
 vim.opt_local.conceallevel = 2 -- render-markdown hides the markup it draws
 
 -- Continue bullet and numbered lists on <CR> and o.
