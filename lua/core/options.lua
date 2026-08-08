@@ -54,3 +54,4 @@ o.spell = false
 o.mouse = "a"
 o.clipboard = "unnamedplus" -- via wl-clipboard
 o.sessionoptions = "buffers,curdir,folds,tabpages,winsize"
+o.shell = "fish"
