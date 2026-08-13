@@ -1,10 +1,12 @@
 local map = vim.keymap.set
 
-map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
+map("n", "<leader>q", "<cmd>bp|bd #<cr>", { desc = "Close buffer" })
 
 -- Keep the selection while indenting, like every other editor.
 map("x", "<Tab>", ">gv", { desc = "Indent selection" })
 map("x", "<S-Tab>", "<gv", { desc = "Dedent selection" })
+
+map({"n", "i"}, "<A-z>", ":set wrap!<CR>", { desc = "Toggle wrap" })
 
 -- Also in terminal mode, so the Claude and shell splits are not one-way doors.
 -- This shadows the TUI's own <C-j>; use \<CR> or <S-CR> for a literal newline.
