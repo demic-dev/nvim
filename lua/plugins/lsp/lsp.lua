@@ -22,8 +22,13 @@ vim.diagnostic.config({
 
 -- Neovim 0.12 already maps K, grn, gra, grr, gri and gO on attach.
 vim.api.nvim_create_autocmd("LspAttach", {
-  desc = "LSP keymaps",
+  desc = "LSP keymaps and folding",
   callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method("textDocument/foldingRange") then
+      vim.wo[vim.api.nvim_get_current_win()][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+
     local map = function(lhs, rhs, desc)
       vim.keymap.set("n", lhs, rhs, { buffer = ev.buf, desc = desc })
     end

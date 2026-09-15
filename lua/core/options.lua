@@ -33,6 +33,10 @@ o.showmode = false -- the statusline shows it
 o.laststatus = 3 -- one statusline for all windows
 o.winborder = "rounded"
 
+o.foldmethod = "expr"
+o.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- LSP folding replaces this on attach where supported
+o.foldlevelstart = 99 -- files open unfolded
+
 o.expandtab = true
 o.shiftwidth = 2
 o.tabstop = 2
