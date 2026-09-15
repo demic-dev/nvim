@@ -10,7 +10,12 @@ require("blink.cmp").setup({
     preset = "super-tab",
     -- ["<CR>"] = { "accept", "fallback" },
   },
-  sources = { default = { "lsp", "path", "snippets", "buffer" } },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
+    providers = {
+      buffer = { enabled = function() return vim.bo.filetype ~= "markdown" end },
+    },
+  },
   signature = { enabled = true },
   completion = {
     documentation = { auto_show = true },
