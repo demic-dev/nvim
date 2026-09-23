@@ -22,6 +22,11 @@
           basedpyright
           ruff
           vtsls
+          svelte-language-server
+          vscode-langservers-extracted
+          vue-language-server
+          gopls
+          go
           nodejs
           tinymist
           typst
