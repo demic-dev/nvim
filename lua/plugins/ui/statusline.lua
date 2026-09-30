@@ -12,6 +12,11 @@ statusline.setup({
       local diagnostics = statusline.section_diagnostics({ trunc_width = 75 })
       local filename = statusline.section_filename({ trunc_width = 140 })
       local location = "%l:%v"
+      local words = ""
+      if vim.bo.filetype == "markdown" or vim.bo.filetype == "typst" then
+        local count = vim.fn.wordcount().visual_words
+        words = count and (count .. " words") or ""
+      end
 
       return statusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
@@ -19,7 +24,7 @@ statusline.setup({
         "%<%=", -- truncate and right-align from here
         { hl = "MiniStatuslineFilename", strings = { filename } },
         "%=",
-        { hl = "MiniStatuslineFileinfo", strings = { vim.bo.filetype } },
+        { hl = "MiniStatuslineFileinfo", strings = { words, vim.bo.filetype } },
         { hl = mode_hl, strings = { location } },
       })
     end,
