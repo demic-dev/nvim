@@ -13,7 +13,7 @@ require("blink.cmp").setup({
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
     providers = {
-      buffer = { enabled = function() return vim.bo.filetype ~= "markdown" end },
+      buffer = { enabled = function() return vim.g.word_completion and vim.bo.filetype ~= "markdown" end },
     },
   },
   signature = { enabled = true },
@@ -22,3 +22,8 @@ require("blink.cmp").setup({
     ghost_text = { enabled = true },
   },
 })
+
+vim.g.word_completion = true
+vim.keymap.set("n", "<leader>tc", function()
+  vim.g.word_completion = not vim.g.word_completion
+end, { desc = "Toggle word completion" })

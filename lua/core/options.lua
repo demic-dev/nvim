@@ -53,9 +53,8 @@ o.timeoutlen = 400
 o.confirm = true
 
 -- Missing dictionaries are downloaded into stdpath("data")/site/spell on first
--- use. Spell checking itself stays off until <leader>ts.
-o.spelllang = "en,it,fr,es"
-o.spell = false
+-- use. English is left to Harper (see plugins/lsp/harper.lua).
+o.spelllang = "it,fr,es"
 
 o.mouse = "a"
 o.clipboard = "unnamedplus" -- via wl-clipboard

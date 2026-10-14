@@ -26,10 +26,6 @@ map({ "n", "i", "x" }, "<C-s>", "<cmd>write<cr>", { desc = "Save file" })
 map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Leave terminal mode" })
 
-map("n", "<leader>ts", function()
-  vim.o.spell = not vim.o.spell
-end, { desc = "Toggle spell check" })
-
 map("n", "<leader>xx", function()
   vim.diagnostic.setqflist()
 end, { desc = "Diagnostics to quickfix" })

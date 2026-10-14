@@ -28,6 +28,7 @@
           gopls
           go
           nodejs
+          harper
           tinymist
           typst
           zathura
