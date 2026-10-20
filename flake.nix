@@ -39,6 +39,7 @@
           gcc
           git
           wl-clipboard
+          miller
         ];
     in
     {

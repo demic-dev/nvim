@@ -53,8 +53,9 @@ o.timeoutlen = 400
 o.confirm = true
 
 -- Missing dictionaries are downloaded into stdpath("data")/site/spell on first
--- use. English is left to Harper (see plugins/lsp/harper.lua).
-o.spelllang = "it,fr,es"
+-- use. English stays listed so that English words are not flagged as
+-- misspelled; Harper adds grammar checking on top (see plugins/lsp/harper.lua).
+o.spelllang = "en,it,fr,es"
 
 o.mouse = "a"
 o.clipboard = "unnamedplus" -- via wl-clipboard
