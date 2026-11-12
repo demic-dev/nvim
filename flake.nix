@@ -44,7 +44,14 @@
     in
     {
       devShells = forAllSystems (pkgs: {
-        default = pkgs.mkShell { packages = tools pkgs; };
+        default = pkgs.mkShell {
+          packages = tools pkgs;
+          MOTD = ''
+            NVIM_APPNAME=<name> nvim   trial this config without replacing yours
+            :lua vim.pack.update()     update plugins, pinned in nvim-pack-lock.json
+            nix build                  buildEnv of the tools, for system config
+          '';
+        };
       });
 
       packages = forAllSystems (pkgs: {
